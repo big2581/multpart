@@ -30,17 +30,14 @@ public class UploadController {
 	
 	@RequestMapping(value="/")
 	public String init() {
-		System.out.println("进入第一个");
 		return "upload";
 	}
 	
 	@RequestMapping(value="/up/go",method=RequestMethod.POST)
 	public String getupload(Upload up,@RequestParam MultipartFile imgs,HttpServletRequest request) {//Upload up,@RequestParam MultipartFile img
 		  String realPath = request.getSession().getServletContext().getRealPath("/upload");
-		  System.out.println("======================"+realPath);
 		  String filename = imgs.getOriginalFilename();
 		  String extension = FilenameUtils.getExtension(filename);//拿到文件的后缀
-		  System.out.println("----------------------"+extension);
 		  String uuid = UUID.randomUUID().toString();
 		  String name=uuid+"."+extension;
 		  File file2 =new File(realPath);	
@@ -53,13 +50,11 @@ public class UploadController {
 			 OutputStream out=new FileOutputStream(file);
 			 FileCopyUtils.copy(in, out);
 			 up.setImg("upload/"+name);
-			 System.out.println(".......................");
 			 ius.insertbyUpload(up);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("dddddddddddddddddd");
 		return "ok";
 	}
 }
