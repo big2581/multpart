@@ -1,10 +1,11 @@
 package com.big.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Upload {
+public class Upload implements Serializable {
 	private Integer id;
 	private String img;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

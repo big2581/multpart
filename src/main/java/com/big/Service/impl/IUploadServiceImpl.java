@@ -1,5 +1,7 @@
 package com.big.Service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class IUploadServiceImpl implements IUploadService {
 	@Override
 	public void insertbyUpload(Upload up) {
 		iup.insertbyUpload(up);
+	}
+	@Override
+	public List<Upload> selectAll() {
+		return iup.selectAll();
 	}
 
 }
