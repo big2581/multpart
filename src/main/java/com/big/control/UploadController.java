@@ -8,7 +8,6 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.UUID;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
@@ -57,7 +56,7 @@ public class UploadController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "forward:pagelist";
+		return "forward:/pagelist";
 	}
 	@RequestMapping(value="pagelist",method=RequestMethod.POST)
 	public String getlist(Model m) {
