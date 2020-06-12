@@ -5,6 +5,6 @@
 		insert into Upload (img,img_date) values(#{img},#{img_date})
 	</insert>
 	<select id="selectAll" resultType="com.big.entity.Upload">
-		select * from upload
+		select * from Upload
 	</select>
 </mapper>

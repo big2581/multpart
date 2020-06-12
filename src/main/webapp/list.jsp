@@ -2,10 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%
+	String path = request.getContextPath();
+	String basepath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<base href="<%=basepath %>"/>
 <title>成功界面</title>
 </head>
 <body>
@@ -19,7 +24,7 @@
 	</tr>
 	<c:forEach items="${list}" var="l">
 	<tr>
-		<td>${l.id}</td><td>${l.img}</td><td><fmt:formatDate value="${l.img_date}" pattern="yyyy-MM-dd hh:mm:ss"></fmt:formatDate></td>
+		<td>${l.id}</td><td><img src="${l.img}"/></td><td><fmt:formatDate value="${l.img_date}" pattern="yyyy-MM-dd hh:mm:ss"></fmt:formatDate></td>
 	</tr>
 	</c:forEach>
 	</table>
