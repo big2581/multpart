@@ -22,11 +22,19 @@
 	<tr>
 	<th>id</th><th>img</th><th>date</th>
 	</tr>
-	<c:forEach items="${list}" var="l">
+	<c:forEach items="${pageinfo.list}" var="l">
 	<tr>
 		<td>${l.id}</td><td><img src="${l.img}"/></td><td><fmt:formatDate value="${l.img_date}" pattern="yyyy-MM-dd hh:mm:ss"></fmt:formatDate></td>
 	</tr>
 	</c:forEach>
 	</table>
+	<span>当前页：${pageinfo.pageNum}</span><br>
+	<span>每页的数量：${pageinfo.pageSize}</span><br>
+	<span>总记录数：${pageinfo.total}</span><br>
+	<span>总页数：${pageinfo.pages}</span><br>
+	<a href="pagelist?pn=1">首页</a>
+	<a href="pagelist?pn=${pageinfo.hasPreviousPage?pageinfo.prePage:1}">前一页</a>
+	<a href="pagelist?pn=${pageinfo.hasNextPage?pageinfo.nextPage:pageinfo.pages}"<c:if test="${pageinfo.hasNextPage}"></c:if> >后一页</a>
+	<a href="pagelist?pn=${ pageinfo.pages}">尾页</a>
 </body>
 </html>

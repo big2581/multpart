@@ -22,6 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.big.Service.IUploadService;
 import com.big.entity.Upload;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 @Controller
 @RequestMapping("/")
@@ -56,12 +58,14 @@ public class UploadController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "forward:/pagelist";
+		return "redirect:/pagelist";
 	}
-	@RequestMapping(value="pagelist",method=RequestMethod.POST)
-	public String getlist(Model m) {
+	@RequestMapping(value="pagelist",method=RequestMethod.GET)
+	public String getlist(@RequestParam(value="pn",defaultValue = "1") Integer pn,Model m) {
+		PageHelper.startPage(pn, 3);
 		List<Upload> list = ius.selectAll();
-		m.addAttribute("list", list);
+		PageInfo<Upload> pageinfo =new PageInfo<Upload>(list);
+		m.addAttribute("pageinfo", pageinfo);
 		return "list";
 	}
 }
