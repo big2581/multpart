@@ -28,4 +28,9 @@ public class Upload implements Serializable {
 	public void setImg_date(Date img_date) {
 		this.img_date = img_date;
 	}
+	@Override
+	public String toString() {
+		return "Upload [id=" + id + ", img=" + img + ", img_date=" + img_date + "]";
+	}
+	
 }
