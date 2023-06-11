@@ -54,6 +54,8 @@ public class UploadController {
 			 FileCopyUtils.copy(in, out);
 			 up.setImg("upload/"+name);
 			 ius.insertbyUpload(up);
+			  System.out.println("ss");
+			  System.out.println("2w");
 			  System.out.println("tt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
