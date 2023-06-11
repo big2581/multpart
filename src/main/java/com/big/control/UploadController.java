@@ -55,6 +55,8 @@ public class UploadController {
 			 up.setImg("upload/"+name);
 			 ius.insertbyUpload(up);
 			  System.out.println("tt");
+			  System.out.println("er");
+			  System.out.println(getClass());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
