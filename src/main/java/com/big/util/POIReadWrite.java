@@ -36,6 +36,7 @@ public class POIReadWrite {
 		workbook.write(out);//保存Excel文件
 		out.close();//关闭文件流
 		System.out.println("OK!");
+        System.out.println(3);
 	}
 	//读取那个路径下的文件
 	public static void getExecl(String path) throws IOException {
